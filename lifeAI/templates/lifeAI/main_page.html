@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LifeAI</title>
+    <link rel="stylesheet" href="{% static 'lifeAI/css/style.css' %}?v=1.1" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="page-dashboard">
+    <nav class="sidebar">
+  
+      <div class="logo-container">
+        <img src="{% static 'lifeAI/img/lifeAI_logo.png' %}" alt="LifeAI Logo" class="logo-img">
+      </div>
+  
+      <a href="#home" title="Home"><i data-lucide="layout-dashboard"></i></a>
+      <a href="#calendario" title="Rotina"><i data-lucide="calendar"></i></a>
+      <a href="#chatIA" title="Chat IA"><i data-lucide="message-circle"></i></a>
+      <a href="#desempenho" title="Desempenho"><i data-lucide="activity"></i></a>
+      <a href="#configuracoes" title="Configurações"><i data-lucide="settings"></i></a>
+      <a href="#logout" title="Logout"><i data-lucide="log-out"></i></a>
+  
+      <div class="floating-button" title="Ação rápida">
+        <i data-lucide="help-circle"></i>
+      </div>
+  
+    </nav>  
+
+    <main class="dashboard">
+      <div class="topo-dashboard">
+        <section class="cards">
+          <div class="card">
+            <h3>Consumo calórico</h3>
+            <p>Valor: --</p>
+          </div>
+          <div class="card">
+            <h3>Qualidade do Sono</h3>
+            <p>Valor: --</p>
+          </div>
+          <div class="card">
+            <h3>Hidratação</h3>
+            <p>Valor: --</p>
+          </div>
+        </section>
+
+        <aside class="imc-resumo">
+          <h2>Resumo IMC</h2>
+          <p>Peso: -- kg</p>
+          <p>Altura: -- cm</p>
+          <p>IMC: --</p>
+          <div class="grafico-placeholder">[Figura IMC]</div>
+        </aside>
+      </div>
+
+      <section class="atividades">
+        <h2>Atividades realizadas</h2>
+        <div class="grafico-placeholder">[Gráfico de atividades]</div>
+      </section>
+    </main>
+
+    <script src="{% static 'lifeAI/js/script.js' %}"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
