@@ -1,141 +1,316 @@
+/* ===== RESET & ESTILOS GLOBAIS ===== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    background-color: #0d1c27;
-    color: white;
-    font-family: Arial, sans-serif;
-  }
-  
-  header nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 40px;
-    align-items: center;
-  }
-  
-  .nav-menu {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .nav-menu a {
-    text-decoration: none;
-    color: white;
-    font-size: 14px;
-  }
-  
-  .nav-buttons {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .nav-register,
-  .nav-login {
-    text-decoration: none;
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-  }
-  
-  .nav-register {
-    color: #00c8c8;
-  }
-  
-  .nav-login {
-    background-color: #00c8c8;
-  }
-  
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 60px;
-    height: calc(100vh - 80px);
-  }
-  
-  .left-section {
-    flex: 1;
-    max-width: 300px;
-  }
-  
-  .brand {
-    font-size: 36px;
-    font-weight: bold;
-  }
-  
-  .login-prompt {
-    margin-top: 20px;
-    color: #00c8c8;
-    font-size: 16px;
-  }
-  
-  .right-section {
-    flex: 1;
-    max-width: 320px;
-    background-color: #0d1c27;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .register-form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .register-form input {
-    padding: 12px;
-    border-radius: 8px;
-    border: none;
-    background-color: #132833;
-    color: white;
-  }
-  
-  .register-form button {
-    padding: 12px;
-    border-radius: 8px;
-    background-color: #00c8c8;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .forgot-password {
-    text-align: right;
-    font-size: 12px;
-    color: #aaa;
-    text-decoration: none;
-  }
-  
-  .divider {
-    margin: 20px 0 10px;
-    font-size: 14px;
-    color: #aaa;
-  }
-  
-  .social-buttons {
-    display: flex;
-    gap: 16px;
-  }
-  
-  .social-buttons button {
-    background-color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 8px; 
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #0d1c27;
+  color: #ffffff;
+}
+
+/* ===== SIDEBAR GLOBAL ===== */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  background-color: #081018;
+  width: 60px;
+  height: 100vh;
+  position: fixed;
+}
+.sidebar .logo-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.sidebar .logo-container img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.sidebar a {
+  width: 40px;
+  height: 40px;
+  margin: 10px 0;
+  background-color: #075e54;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.sidebar a.active,
+.sidebar a:hover {
+  background-color: #00c853;
+}
+
+.sidebar i {
+  font-size: 20px;
+  color: white;
+}
+
+.floating-button {
+  margin-top: auto;
+  margin-bottom: 20px;
+  background-color: #00c853;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.floating-button:hover {
+  background-color: #00a543;
+}
+
+/* ===== PÁGINA DE LOGIN/REGISTRO (index.html) ===== */
+body.page-index {
+  background-color: #0A1E29;
+  color: white;
+}
+
+body.page-index .container { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px;
+  height: calc(100vh - 80px);
+}
+
+body.page-index header nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  align-items: center;
+}
+
+body.page-index .nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+body.page-index .nav-menu a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+}
+
+body.page-index .nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+body.page-index .nav-register {
+  text-decoration: none;
+  color: #00c8c8;
+  padding: 8px 16px;
+  border: 1px solid #00c8c8;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.page-index .nav-register:hover {
+  background-color: #00c8c8;
+  color: #0A1E29;
+}
+
+body.page-index .nav-login {
+  background-color: #00c8c8;
+  color: #0A1E29;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+body.page-index .nav-login:hover {
+  background-color: #00a5a5;
+}
+
+body.page-index .left-section {
+  flex: 1;
+  max-width: 300px;
+}
+
+body.page-index .brand {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+body.page-index .login-prompt {
+  margin-top: 20px;
+  color: #00c8c8;
+  font-size: 16px;
+}
+
+body.page-index .right-section {
+  flex: 1;
+  max-width: 320px;
+  background-color: #0D2B3A;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 12px;
+}
+
+body.page-index .register-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+body.page-index .register-form input {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #102938;
+  color: white;
+}
+
+body.page-index .register-form button {
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #00c8c8;
+  color: #0A1E29;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+body.page-index .forgot-password {
+  text-align: right;
+  font-size: 12px;
+  color: #aaa;
+  text-decoration: none;
+}
+
+body.page-index .divider {
+  margin: 20px 0 10px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+body.page-index .social-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+body.page-index .social-buttons button {
+  background-color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* ===== PÁGINA DASHBOARD (main_page.html) ===== */
+
+body.page-dashboard .dashboard {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  padding-left: 100px;
+  gap: 20px;
+}
+
+body.page-dashboard .topo-dashboard {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  align-items: flex-start;
+}
+
+/* Cards (Calorias, Sono, Hidratação) */
+body.page-dashboard .cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  flex: 2;
+}
+
+body.page-dashboard .card {
+  background: #13212f;
+  border-radius: 16px;
+  padding: 20px;
+  min-height: 120px;
+  text-align: center;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+body.page-dashboard .card:hover {
+  transform: translateY(-5px);
+}
+
+body.page-dashboard .imc-resumo {
+  background: #13212f;
+  border-radius: 16px;
+  padding: 20px;
+  width: 300px;
+  height: 100%;
+  text-align: center;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 400px;
+}
+
+body.page-dashboard .imc-resumo .imc-valor {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+body.page-dashboard .grafico-placeholder {
+  background: #243447;
+  border-radius: 12px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+}
+
+body.page-dashboard .atividades {
+  background: #13212f;
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 80px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.page-dashboard h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #00c8c8;
+}
+
+body.page-dashboard p {
+  color: #cccccc;
+  font-size: 14px;
+}
