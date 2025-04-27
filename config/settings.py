@@ -135,7 +135,6 @@ TEMPLATES = [
 
 # Atualize STATICFILES_DIRS para incluir ambos os caminhos
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'lifeAI/static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
