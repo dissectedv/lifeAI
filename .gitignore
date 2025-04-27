@@ -1,0 +1,18 @@
+# Ignorar virtual environment
+venv/
+env/
+
+# Ignorar caches do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar arquivos de configuração sensíveis
+*.env
+*.sqlite3
+
+# Ignorar arquivos de editor
+.vscode/
+.idea/
+*.swp
