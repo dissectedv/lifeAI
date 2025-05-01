@@ -4,7 +4,8 @@
   <head>
     <meta charset="UTF-8" />
     <title>LifeAI</title>
-    <link rel="stylesheet" href="{% static 'lifeAI/css/style.css' %}?v=1.1"/>
+    {% now "U" as timestamp %}
+<link rel="stylesheet" href="{% static 'lifeAI/css/style.css' %}?v={{ timestamp }}" />
     <script src="https://unpkg.com/lucide@latest"></script>
   </head>
   <body class="page-dashboard">

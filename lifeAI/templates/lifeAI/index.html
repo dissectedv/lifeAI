@@ -6,37 +6,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LifeAI</title>
-    <link rel="stylesheet" href="{% static 'lifeAI/css/style.css' %}?v=1.1"/>
+    {% now "U" as timestamp %}
+    <link rel="stylesheet" href="{% static 'lifeAI/css/style.css' %}?v={{ timestamp }}" />
+
   </head>
+
   <body class="page-index">
-
     {% if messages %}
-  <div style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; display: flex; flex-direction: column; gap: 10px; width: 90%; max-width: 400px;">
-    {% for message in messages %}
-      <div style="
-        padding: 12px 16px;
-        border-radius: 8px;
-        font-weight: bold;
-        text-align: center;
-        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.4);
-        {% if message.tags == 'success' %}
-          background-color: #00c853; color: #0a1e29;
-        {% elif message.tags == 'error' %}
-          background-color: #ff5252; color: white;
-        {% elif message.tags == 'warning' %}
-          background-color: #ffc107; color: #0a1e29;
-        {% elif message.tags == 'info' %}
-          background-color: #29b6f6; color: #0a1e29;
-        {% else %}
-          background-color: #444; color: white;
-        {% endif %}
-      ">
-        {{ message }}
+      <div style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; display: flex; flex-direction: column; gap: 10px; width: 90%; max-width: 400px;">
+        {% for message in messages %}
+          <div style="
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.4);
+            {% if message.tags == 'success' %}
+              background-color: #00c853; color: #0a1e29;
+            {% elif message.tags == 'error' %}
+              background-color: #ff5252; color: white;
+            {% elif message.tags == 'warning' %}
+              background-color: #ffc107; color: #0a1e29;
+            {% elif message.tags == 'info' %}
+              background-color: #29b6f6; color: #0a1e29;
+            {% else %}
+              background-color: #444; color: white;
+            {% endif %}
+          ">
+            {{ message }}
+          </div>
+        {% endfor %}
       </div>
-    {% endfor %}
-  </div>
-{% endif %}
-
+    {% endif %}
+    
     <header>
       <nav>
         <ul class="nav-menu">
@@ -45,8 +47,8 @@
           <li><a href="#">Contato</a></li>
         </ul>
         <div class="nav-buttons">
-          <a href="#" class="nav-register">Registrar</a>
-          <a href="#" class="nav-login">Login</a>
+          <button id="btn-login" class="nav-login" onclick="showForm('login')">Login</button>
+          <button id="btn-register" class="nav-register" onclick="showForm('register')">Registre-se</button>
         </div>
       </nav>
     </header>
@@ -55,9 +57,9 @@
       <section class="left-section">
         <h1 class="brand">LifeAI</h1>
         <p class="login-prompt">
-          Se você já tem uma<br />
-          conta, <strong>faça aqui o login!</strong>
-        </p>
+          Se você já tem uma<br/>
+          conta, <strong style="cursor: pointer;" onclick="showForm('login')">faça aqui o login!</strong>
+        </p>             
       </section>
 
       <section class="center-section" style="display: flex; justify-content: center">
@@ -69,7 +71,16 @@
       </section>
 
       <section class="right-section">
-        <form method="post" class="register-form">
+
+        <form id="loginForm" method="post" action="{% url 'login_view' %}" class="register-form">
+          {% csrf_token %}
+          <input type="email" name="email" placeholder="email" required />
+          <input type="password" name="password" placeholder="senha" required />
+          <a href="#" class="forgot-password">Esqueceu a senha?</a>
+          <button type="submit">Login</button>
+        </form>
+
+        <form id="registerForm" method="post" action="{% url 'register_view' %}" class="register-form hidden">
           {% csrf_token %}
           <input type="text" name="username" placeholder="usuário" required />
           <input type="email" name="email" placeholder="email" required />
@@ -93,5 +104,7 @@
         </div>
       </section>
     </main>
+
+    <script src="{% static 'lifeAI/js/script.js' %}?v={{ timestamp }}"></script>
   </body>
 </html>
