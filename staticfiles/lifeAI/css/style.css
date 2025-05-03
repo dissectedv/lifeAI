@@ -22,6 +22,7 @@ body {
   height: 100vh;
   position: fixed;
 }
+
 .sidebar .logo-container {
   margin: 20px 0;
   text-align: center;
@@ -77,6 +78,19 @@ body {
   background-color: #00a543;
 }
 
+/* ===== LOGOUT ===== */
+.sidebar a#logout-link {
+  background-color: #a52727 !important;
+}
+
+.sidebar a#logout-link:hover {
+  background-color: #b71c1c !important;
+}
+
+.sidebar a#logout-link.active {
+  background-color: #c62828 !important;
+}
+
 /* ===== PÁGINA DE LOGIN/REGISTRO (index.html) ===== */
 body.page-index {
   background-color: #0A1E29;
@@ -127,8 +141,9 @@ body.page-index .nav-buttons button:hover {
 }
 
 body.page-index .nav-buttons button.active {
-  background-color: #00c8c8;
-  color: #0A1E29;
+  background-color: #00a5a5;
+  color: white;
+  border-color: #00a5a5;
 }
 
 body.page-index .nav-register:hover {
@@ -138,23 +153,6 @@ body.page-index .nav-register:hover {
 
 body.page-index .nav-login:hover {
   background-color: #00a5a5;
-}
-
-body.page-index .nav-buttons button {
-  background-color: transparent;
-  color: #00c8c8;
-  padding: 8px 16px;
-  border: 1px solid #00c8c8;
-  border-radius: 20px;
-  font-weight: bold;
-  transition: background-color 0.3s, color 0.3s;
-  cursor: pointer;
-}
-
-body.page-index .nav-buttons button.active {
-  background-color: #00a5a5;
-  color: white;
-  border-color: #00a5a5;
 }
 
 body.page-index .left-section {
@@ -241,7 +239,6 @@ body.page-index .social-buttons button {
 }
 
 /* ===== PÁGINA DASHBOARD (main_page.html) ===== */
-
 body.page-dashboard .dashboard {
   display: flex;
   flex-direction: column;
@@ -332,10 +329,5 @@ body.page-dashboard p {
   display: none !important;
 }
 
-body.page-index .nav-buttons button.active {
-  background-color: #00a5a5;
-  color: white;
-  border: 1px solid #00a5a5;
-}
 
-/* ===== PÁGINA CHATBOT (chat.html) ===== */
+
