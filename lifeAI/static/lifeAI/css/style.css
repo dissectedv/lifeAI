@@ -78,6 +78,19 @@ body {
   background-color: #00a543;
 }
 
+/* ===== LOGOUT ===== */
+.sidebar a#logout-link {
+  background-color: #a52727 !important;
+}
+
+.sidebar a#logout-link:hover {
+  background-color: #b71c1c !important;
+}
+
+.sidebar a#logout-link.active {
+  background-color: #c62828 !important;
+}
+
 /* ===== PÁGINA DE LOGIN/REGISTRO (index.html) ===== */
 body.page-index {
   background-color: #0A1E29;
@@ -315,3 +328,6 @@ body.page-dashboard p {
 .hidden {
   display: none !important;
 }
+
+
+

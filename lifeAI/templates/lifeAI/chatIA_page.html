@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LifeAI</title>
+    {% now "U" as timestamp %}
+    <link rel="stylesheet" href="{% static 'lifeAI/css/style.css' %}?v={{ timestamp }}" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+
+  <body class="page-chat">
+    <nav class="sidebar">
+  
+      <div class="logo-container">
+        <img src="{% static 'lifeAI/img/lifeAI_logo.png' %}" alt="LifeAI Logo" class="logo-img">
+      </div>
+  
+      <a href="{% url 'home_page' %}" title="Home"><i data-lucide="layout-dashboard"></i></a>
+      <a href="{% url 'rotina' %}" title="Rotina"><i data-lucide="calendar"></i></a>
+      <a href="{% url 'chatIA' %}" title="Chat IA"><i data-lucide="message-circle"></i></a>
+      <a href="{% url 'desempenho' %}" title="Desempenho"><i data-lucide="activity"></i></a>
+      <a href="{% url 'configuracoes' %}" title="Configurações"><i data-lucide="settings"></i></a>
+      <a href="#" title="Logout" id="logout-link" data-logout-url="{% url 'logout' %}">
+        <i data-lucide="log-out"></i>
+      </a>      
+  
+      <div class="floating-button" title="Ação rápida">
+        <i data-lucide="help-circle"></i>
+      </div>
+  
+    </nav>  
+
+    <main class="main-chatbot">
+        
+    </main>
+
+    <script src="{% static 'lifeAI/js/script.js' %}?v={{ timestamp }}"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

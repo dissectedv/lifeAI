@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 
-
 def register_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -17,11 +16,10 @@ def register_view(request):
             elif User.objects.filter(email=email).exists():
                 messages.error(request, 'Email já está em uso.')
             else:
-                user = User.objects.create_user(
-                    username=username, email=email, password=password)
+                user = User.objects.create_user(username=username, email=email, password=password)
                 login(request, user)
                 messages.success(request, 'Usuário registrado com sucesso!')
-                return redirect('main_page.html')
+                return redirect('home_page')
         else:
             messages.error(request, 'Todos os campos são obrigatórios.')
 
@@ -38,7 +36,7 @@ def login_view(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('main_page')
+                return redirect('home_page')
             else:
                 messages.error(request, 'Credenciais inválidas.')
         except User.DoesNotExist:
@@ -51,13 +49,26 @@ def logout_view(request):
     return redirect('register_view')
 
 
-def main_page(request):
-    if not request.user.is_authenticated:
-        return redirect('login_view')
-    return render(request, "LifeAI/main_page.html", {'user': request.user})
+@login_required
+def home_page(request):
+    return render(request, "lifeAI/home_page.html", {'user': request.user})
 
 
+@login_required
 def chat_page(request):
-    if not request.user.is_authenticated:
-        return redirect('login_view')
-    return render(request, "LifeAI/chat.html", {'user': request.user})
+    return render(request, "lifeAI/chatIA_page.html", {'user': request.user})
+
+
+@login_required
+def config_page(request):
+    return render(request, "lifeAI/config_page.html", {'user': request.user})
+
+
+@login_required
+def desempenho_page(request):
+    return render(request, "lifeAI/desemp_page.html", {'user': request.user})
+
+
+@login_required
+def rotina_page(request):
+    return render(request, "lifeAI/rotina_page.html", {'user': request.user})
