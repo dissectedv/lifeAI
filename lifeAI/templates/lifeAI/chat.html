@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="{% static 'lifeAI/css/style.css' %}?v={{ timestamp }}" />
     <script src="https://unpkg.com/lucide@latest"></script>
   </head>
-  <body class="page-dashboard">
+
+  <body class="page-chat">
     <nav class="sidebar">
   
       <div class="logo-container">
@@ -28,36 +29,8 @@
   
     </nav>  
 
-    <main class="dashboard">
-      <div class="topo-dashboard">
-        <section class="cards">
-          <div class="card">
-            <h3>Consumo calórico</h3>
-            <p>Valor: --</p>
-          </div>
-          <div class="card">
-            <h3>Qualidade do Sono</h3>
-            <p>Valor: --</p>
-          </div>
-          <div class="card">
-            <h3>Hidratação</h3>
-            <p>Valor: --</p>
-          </div>
-        </section>
-
-        <aside class="imc-resumo">
-          <h2>Resumo IMC</h2>
-          <p>Peso: -- kg</p>
-          <p>Altura: -- cm</p>
-          <p>IMC: --</p>
-          <div class="grafico-placeholder">[Figura IMC]</div>
-        </aside>
-      </div>
-
-      <section class="atividades">
-        <h2>Atividades realizadas</h2>
-        <div class="grafico-placeholder">[Gráfico de atividades]</div>
-      </section>
+    <main class="main-chatbot">
+        
     </main>
 
     <script src="{% static 'lifeAI/js/script.js' %}"></script>

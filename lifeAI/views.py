@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
@@ -45,12 +46,18 @@ def login_view(request):
     return redirect('register_view')
 
 
+def logout_view(request):
+    logout(request)
+    return redirect('register_view')
+
+
 def main_page(request):
     if not request.user.is_authenticated:
         return redirect('login_view')
     return render(request, "LifeAI/main_page.html", {'user': request.user})
 
 
-def logout_view(request):
-    logout(request)
-    return redirect('register_view')
+def chat_page(request):
+    if not request.user.is_authenticated:
+        return redirect('login_view')
+    return render(request, "LifeAI/chat.html", {'user': request.user})
