@@ -238,7 +238,7 @@ body.page-index .social-buttons button {
   cursor: pointer;
 }
 
-/* ===== PÁGINA DASHBOARD (main_page.html) ===== */
+/* ===== PÁGINA DASHBOARD (home_page.html) ===== */
 body.page-dashboard .dashboard {
   display: flex;
   flex-direction: column;
